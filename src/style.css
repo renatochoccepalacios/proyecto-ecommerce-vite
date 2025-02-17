@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer components {
+    
+
+    .active-button::after {
+        content: "";
+        @apply absolute left-0 bottom-0 w-full h-0.5 bg-black transition-all duration-300;
+    }
+
+    .option {
+        @apply  relative inline-block;
+    }
+
+    .option::after {
+        content: "";
+        @apply absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-300;
+
+    }
+
+    .option:hover::after {
+        @apply w-full;
+    }
+
+
+
+    
+}
