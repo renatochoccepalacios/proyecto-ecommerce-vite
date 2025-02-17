@@ -27,7 +27,7 @@ function ItemListContainer(props) {
     return (
         
             <>
-            <h1>{greeting}</h1>
+            {/* <h1>{greeting}</h1> */}
             <ItemList products={products} />
             </>
     )
