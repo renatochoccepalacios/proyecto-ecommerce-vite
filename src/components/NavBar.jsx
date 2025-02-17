@@ -6,7 +6,7 @@ function NavBar(props) {
     const { imgBrand } = props;
 
     return (
-        <nav className=" w-full   px-4 shadow-[21px_-8px_79px_25px_rgb(86_104_131/50%),-2px_19px_59px_rgba(255,255,255,0.6)]">
+        <nav className=" w-full   px-4 shadow-[5px_5px_10px_#bebebe,-5px_-5px_10px_#ffffff]">
             <div className="grid max-w-[900px] m-auto grid-cols-[100px_400px_50px] justify-between items-center px-8 py-4 text-black min-h-[10vh] ">
                 <Link to="/">
                     <img src={imgBrand} alt="" />
