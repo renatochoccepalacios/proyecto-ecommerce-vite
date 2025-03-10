@@ -1,11 +1,26 @@
 
 
-import { Link } from "react-router-dom"
 import { ItemCount } from "./ItemCount"
+import { Link } from "react-router-dom"
+import { useContext, useState } from "react";
+import { CartContext } from "./Context/CartContext";
 
 
 export const ItemDetails = ({ id, imagen, nuevo, nombre, descripcion, precio, envioGratis, stock}) => {
+    const [quantityAdded, setQuantityAdded] = useState(0);
+
+    const { addItem } = useContext(CartContext);
+
+    const handleOnAdd = (quantity) => {
+        setQuantityAdded(quantity);
+
+        const item = {id, nombre, precio, imagen, descripcion}
+
+        addItem(item, quantity);
+    }
+
     return (
+
 
         <>
             <article
@@ -20,7 +35,13 @@ export const ItemDetails = ({ id, imagen, nuevo, nombre, descripcion, precio, en
                         <p className="text-gray-600">{descripcion}</p>
                         <p>$ {precio}</p>
                         <div className="flex gap-2  ">
-                            <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('su cantidad es ', quantity) } />
+                            {
+                                quantityAdded > 0 ? (
+                                    <Link to="/cart" className="text-white bg-black w-full py-2 px-3 rounded-[1.8rem] cursor-pointer text-center">Terminar mi compra</Link>
+                                ) : (
+                                    <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
+                                )
+                            }
                         </div>
                     </div>
                     {/* <Link className="text-white bg-black w-full py-2 px-3 rounded-[1.8rem] cursor-pointer text-center">Agregar al carrito</Link> */}
