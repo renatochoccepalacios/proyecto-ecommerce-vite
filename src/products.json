@@ -1,12 +1,6 @@
-import jordan1 from "./img/jordan-1.jpg";
-import jordan2 from "./img/jordan-2.jpg";
-import jordan3 from "./img/jordan-3.jpg";
-import jordan4 from "./img/jordan-4.jpg";
-import jordan5 from "./img/jordan-5.jpg";
-import jordan6 from "./img/jordan-6.jpg";
-import jordan7 from "./img/jordan-7.jpg";
 
-const products = [
+[
+
     {
         "id": 1,
         "imagen": "https://i.ibb.co/mrRTPnyN/jordan-1.jpg",
@@ -107,29 +101,4 @@ const products = [
         "descuento": "",
         "stock": 9
     }
-];
-export const getProducts = () => { // cuando llamemos a getProducts
-    // nos va a traer una promesa
-    return new Promise ( (resolve ) => {
-        // y cuando se cumpla vamos a recibir products
-        setTimeout( () => {
-            resolve(products)
-        }, 300)
-    })
-}
-
-export const getProductsByGenero = (categoryId) => { // cuando llamemos a getProducts
-    return new Promise ( (resolve ) => {
-        setTimeout( () => {
-            resolve(products.filter( product => product.genero === categoryId)) // nos va a traer el primer producto que tenga esa id
-        }, 300)
-    })
-}
-
-export const getProductsById = (productId) => { // cuando llamemos a getProducts
-    return new Promise ( (resolve ) => {
-        setTimeout( () => {
-            resolve(products.find(prod => prod.id == productId)) // nos va a traer el primer producto que tenga esa id
-        }, 300)
-    })
-}
+]
