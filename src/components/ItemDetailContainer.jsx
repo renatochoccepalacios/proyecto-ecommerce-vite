@@ -1,32 +1,42 @@
-import { useEffect, useState } from "react";    
+import { useEffect, useState } from "react";
 import { getProductsById } from "../AsyncMock";
 import { ItemDetails } from "./ItemDetails";
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 
-function ItemDetailContainer () {
-    
-    const [products, setProducts] = useState([]);
+function ItemDetailContainer() {
+
+    const [products, setProducts] = useState(null);
 
     const { itemId } = useParams(); // capturamos el parametro
 
     useEffect(() => {
 
-        console.log('item recibido',itemId)
-        getProductsById(itemId)
-            .then((resp) => {
-                setProducts(resp)
+        const docRef = doc(db, 'items', itemId)
+        getDoc(docRef)
+            .then(response => {
+                if (response.exists()) {
+                    const data = response.data();
+                    const productAdapted = { id: response.id, ...data };
+                    setProducts(productAdapted);
+                } else {
+                    console.error('Producto no encontrado');
+                }
             })
-            .catch((err) => {
-                console.log(err)
+
+            .catch(error => {
+                console.log(error);
             })
+
     }, [itemId])
 
     console.log(products)
-    
+
     return (
         <section className=" py-[2rem] px-[2rem] m-auto">
 
-            <ItemDetails {...products} />
+            {products ? <ItemDetails {...products} /> : <p>Cargando...</p>}
         </section>
     )
 }
