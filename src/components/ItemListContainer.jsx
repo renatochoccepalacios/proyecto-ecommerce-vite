@@ -32,7 +32,12 @@ function ItemListContainer() {
         fetchProducts();
     }, [generoId]);
 
-    return <ItemList products={products} />;
+    return (
+        <>
+        {products.length ? <ItemList products={products} /> : <p>Cargando...</p>}
+        
+        </>
+    );
 }
 
 export default ItemListContainer;
