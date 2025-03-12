@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { ItemList } from "./ItemList";
+import Spinner from "./Spinner";
 
 function ItemListContainer() {
     const [products, setProducts] = useState([]);
@@ -34,7 +35,7 @@ function ItemListContainer() {
 
     return (
         <>
-        {products.length ? <ItemList products={products} /> : <p>Cargando...</p>}
+        {products.length ? <ItemList products={products} /> : <Spinner />}
         
         </>
     );

@@ -4,6 +4,7 @@ import { ItemDetails } from "./ItemDetails";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
+import Spinner from "./Spinner";
 
 function ItemDetailContainer() {
 
@@ -36,7 +37,7 @@ function ItemDetailContainer() {
     return (
         <section className=" py-[2rem] px-[2rem] m-auto">
 
-            {products ? <ItemDetails {...products} /> : <p>Cargando...</p>}
+            {products ? <ItemDetails {...products} /> : <Spinner />}
         </section>
     )
 }

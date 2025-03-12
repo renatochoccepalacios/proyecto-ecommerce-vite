@@ -28,9 +28,9 @@ export const CartItem = ({ item }) => {
                     <div className="flex flex-col gap-[10px]">
                         <h2 className="font-medium text-[1.3rem]">{item.nombre}</h2>
                         <p className="text-gray-600">{item.descripcion}</p>
-                        <p>cantidad: {item.quantity}</p>
+                        <p>cantidad: {item.cantidad}</p>
                         <p>$ {item.precio}</p>
-                        <p>Subtotal: {(item.quantity * item.precio).toFixed(2)}</p>
+                        <p>Subtotal: {(item.cantidad * item.precio).toFixed(2)}</p>
                         <button onClick={() => removeItem(item.id)}>Eliminar</button>
                     </div>
                     {/* <Link className="text-white bg-black w-full py-2 px-3 rounded-[1.8rem] cursor-pointer text-center">Agregar al carrito</Link> */}

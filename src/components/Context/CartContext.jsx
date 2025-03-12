@@ -1,13 +1,20 @@
 
 
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 export const CartContext = createContext({
     cart: []
 });
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        const cartStorage = localStorage.getItem('cart');
+        return cartStorage ? JSON.parse(cartStorage) : [];
+    });
+
+    useEffect(( ) => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    })
     console.log(cart);
 
     const addItem = (item, cantidad) => {
@@ -38,6 +45,7 @@ export const CartProvider = ({ children }) => {
 
     const clearCart = () => {
         setCart([]);
+        localStorage.removeItem('cart');
     }
 
     const isInCart = (itemId) => {
