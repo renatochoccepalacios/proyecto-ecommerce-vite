@@ -34,6 +34,7 @@ export const ItemDetails = ({ id, imagen, nuevo, nombre, descripcion, precio, en
                         <h2 className="font-medium text-[1.3rem]">{nombre}</h2>
                         <p className="text-gray-600">{descripcion}</p>
                         <p>$ {precio}</p>
+                        <p>Stock: {stock}</p>
                         <div className="flex gap-2  ">
                             {
                                 quantityAdded > 0 ? (
