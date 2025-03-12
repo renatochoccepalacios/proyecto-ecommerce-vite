@@ -12,13 +12,19 @@ function NavBar(props) {
                     <img src={imgBrand} alt="" />
                 </Link>
                 <ul className="flex justify-center gap-8 uppercase font-[500]">
+
                     <li>
-                        <NavLink to={`/genero/hombre`} className={({isActive}) => `relative inline-block p-2 ${isActive ? 'active-button' : 'option'}`} >Hombres</NavLink>
+                        <NavLink to={`/`} className={({ isActive }) => `relative inline-block p-2 ${isActive ? 'active-button' : 'option'}`}>Todo</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to={`/genero/hombre`} className={({ isActive }) => `relative inline-block p-2 ${isActive ? 'active-button' : 'option'}`} >Hombres</NavLink>
                     </li>
                     <li>
-                        <NavLink to={`/genero/mujer`}  className={({isActive}) => `relative inline-block p-2 ${isActive ? 'active-button' : 'option'}`}>Mujeres</NavLink>
+                        <NavLink to={`/genero/mujer`} className={({ isActive }) => `relative inline-block p-2 ${isActive ? 'active-button' : 'option'}`}>Mujeres</NavLink>
 
                     </li>
+
                 </ul>
 
 
