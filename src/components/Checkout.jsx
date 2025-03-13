@@ -3,6 +3,7 @@ import { CartContext } from './Context/CartContext';
 import { addDoc, collection, doc, documentId, getDocs, query, Timestamp, where, writeBatch } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { CheckoutForm } from './CheckoutForm';
+import Spinner from './Spinner';
 
 export const Checkout = () => {
     const [loading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ export const Checkout = () => {
             const productsRef = collection(db, 'items');
 
             const productsAddedFromFireStore = await getDocs(query(productsRef, where(documentId(), 'in', ids)));
-            const {docs} = productsAddedFromFireStore;
+            const { docs } = productsAddedFromFireStore;
 
             docs.forEach(doc => {
                 const dataDoc = doc.data();
@@ -41,7 +42,7 @@ export const Checkout = () => {
 
                 if (stockDb >= prodCantidad) {
                     batch.update(doc.ref, { stock: stockDb - prodCantidad });
-                    
+
                 } else {
                     outOfStock.push({ ...dataDoc, id: doc.id });
                 }
@@ -55,10 +56,10 @@ export const Checkout = () => {
 
                 setOrderId(orderAdded.id);
                 clearCart();
-            }else {
+            } else {
                 console.error('No hay stock suficiente para los siguientes productos:', outOfStock);
             }
-        } catch (error){
+        } catch (error) {
             console.error(error);
         } finally {
             setLoading(false);
@@ -66,16 +67,21 @@ export const Checkout = () => {
     }
 
     if (loading) {
-        return <h1>Se esta generando la orden...</h1>
+        return <Spinner />
     }
 
     if (orderId) {
-        return <h1>el id de su orden es: {orderId}</h1>
+        return <div className='min-h-screen flex items-center justify-center'>
+            <h1>el id de su orden es: {orderId}</h1>
+        </div>
     }
     return (
-        <div>
-            <h1>Checkout</h1>
-            <CheckoutForm onConfirm={createOrder} />
+        <div className='py-[7rem] h-[100vh] bg-[#ededed] flex flex-col items-center justify-center'>
+            <div className='flex items-center flex-col p-[2rem] bg-white rounded-3xl gap-[4rem] shadow-[0_1px_2px_rgba(0,0,0,0.12)]'>
+                <h1 className='text-[1.7rem]'>Por favor ingrese sus datos </h1>
+                <CheckoutForm onConfirm={createOrder} />
+
+            </div>
         </div>
     )
 }
