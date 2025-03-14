@@ -35,7 +35,7 @@ function ItemDetailContainer() {
     console.log(products)
 
     return (
-        <section className=" py-[2rem] px-[2rem] m-auto">
+        <section className=" py-[3rem] px-[2rem] m-auto">
 
             {products ? <ItemDetails {...products} /> : <Spinner />}
         </section>

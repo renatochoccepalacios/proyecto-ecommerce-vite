@@ -24,7 +24,7 @@ export const ItemDetails = ({ id, imagen, nuevo, nombre, descripcion, precio, en
 
         <>
             <article
-                className="flex flex-col sm:flex-row justify-center min-h-full gap-[2rem] bg-white rounded-lg text-[clamp(0.1rem,5vw,1rem)]">
+                className="flex flex-col items-center sm:flex-row justify-center min-h-full gap-[2rem] bg-white rounded-lg text-[clamp(0.1rem,5vw,1rem)]">
                 <figure className="overflow-hidden col-span-1 w-[40%]">
                     <img src={imagen} alt="" className="hover:scale-[1.2] transition duration-500 ease-in-out" />
                 </figure>
