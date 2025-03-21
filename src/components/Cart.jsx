@@ -31,8 +31,8 @@ export const Cart = () => {
                     {cart.map((producto, index) => <CartItem key={producto.id} item={producto} index={index} />)}
                 </div>
 
-                <div className="col-span md:col-span-1 self-start sticky top-[8rem] ">
-                    <div className="p-6 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.12)] flex flex-col gap-2 ">
+                <div className=" col-span-2 md:col-span-1 self-start sticky top-[8rem] ">
+                    <div className="p-6 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.12)] grid col-span-2 gap-2 ">
                         <h3 className="font-semibold text-lg border-gray-300 ">Resumen de compra</h3>
                         <div className="flex flex-col gap-2">
                             <h4 className="flex justify-between text-gray-700">Productos <span>{cart.length}</span></h4>

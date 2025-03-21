@@ -19,7 +19,7 @@ export const CartItem = ({ item, index }) => {
 
 
 
-            <article  className={`grid grid-cols-1 md:grid-cols-2  p-[2rem] gap-[2rem] text-[clamp(0.1rem,5vw,1rem)] 
+            <article  className={`grid md:grid-cols-2  p-[2rem] gap-[2rem] text-[clamp(0.1rem,5vw,1rem)] 
                 ${index > 0 ? 'border-t-[1px] border-gray-300' : ''}`}>
                 <figure className="overflow-hidden col-span-1">
                     <img src={item.imagen} alt="" className="hover:scale-[1.2] transition duration-500 ease-in-out" />
