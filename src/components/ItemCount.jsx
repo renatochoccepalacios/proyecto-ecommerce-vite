@@ -21,7 +21,7 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div className="Counter w-full flex flex-col gap-4">
 
-            <div className="flex gap-[2rem] items-center justify-center sm:justify-start">
+            <div className="flex gap-[2rem] items-center justify-center">
                 <button className="py-[0.9rem] px-[1.5rem] text-[2rem] rounded-[5px] font-semibold cursor-pointer"
                     onClick={decrement} >
                     -

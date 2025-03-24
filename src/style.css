@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer components {
-    body {
+    #root {
         @apply min-h-dvh grid grid-cols-1 items-center justify-center bg-gray-100;
     }
 

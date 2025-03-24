@@ -24,18 +24,18 @@ export const ItemDetails = ({ id, imagen, nuevo, nombre, descripcion, precio, en
 
         <>
             <article
-                className="flex flex-col items-center sm:flex-row justify-center min-h-full gap-[2rem] bg-white rounded-lg text-[clamp(0.1rem,5vw,1rem)]">
-                <figure className="overflow-hidden col-span-1 w-[40%]">
-                    <img src={imagen} alt="" className="hover:scale-[1.2] transition duration-500 ease-in-out" />
+                className="max-w-[900px] m-auto flex flex-col md:flex-row  gap-[2rem] bg-amber-600 rounded-lg text-[clamp(0.1rem,5vw,1rem)]">
+                <figure className="overflow-hidden col-span-1 flex justify-center">
+                    <img src={imagen} alt="" className="hover:scale-[1.2] transition duration-500 ease-in-out min-h-[200px]" />
                 </figure>
-                <div className="flex flex-col justify-center gap-3 col-span-2 w-[50%]">
+                <div className="flex flex-col justify-center gap-3 w-full">
                     <div className="flex flex-col gap-[10px]">
                         <span className="text-amber-700 flex items-center">{envioGratis ? 'Envio gratis' : nuevo}</span>
                         <h2 className="font-medium text-[1.3rem]">{nombre}</h2>
                         <p className="text-gray-600">{descripcion}</p>
                         <p>$ {precio}</p>
                         <p>Stock: {stock}</p>
-                        <div className="flex gap-2  ">
+                        <div className="flex gap-2 justify-center items-center ">
                             {
                                 quantityAdded > 0 ? (
                                     <Link to="/cart" className="text-white bg-black w-full py-2 px-3 rounded-[1.8rem] cursor-pointer text-center">Terminar mi compra</Link>
