@@ -24,11 +24,11 @@ export const ItemDetails = ({ id, imagen, nuevo, nombre, descripcion, precio, en
 
         <>
             <article
-                className="max-w-[900px] m-auto flex flex-col md:flex-row  gap-[2rem] bg-amber-600 rounded-lg text-[clamp(0.1rem,5vw,1rem)]">
+                className="max-w-[900px] m-auto flex flex-col md:flex-row  gap-[2rem] rounded-[0.8rem] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.12)]  text-[clamp(0.1rem,5vw,1rem)]">
                 <figure className="overflow-hidden col-span-1 flex justify-center">
                     <img src={imagen} alt="" className="hover:scale-[1.2] transition duration-500 ease-in-out min-h-[200px]" />
                 </figure>
-                <div className="flex flex-col justify-center gap-3 w-full">
+                <div className="flex flex-col justify-center gap-3 w-full p-[1.5rem]">
                     <div className="flex flex-col gap-[10px]">
                         <span className="text-amber-700 flex items-center">{envioGratis ? 'Envio gratis' : nuevo}</span>
                         <h2 className="font-medium text-[1.3rem]">{nombre}</h2>

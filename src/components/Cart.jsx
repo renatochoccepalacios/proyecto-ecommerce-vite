@@ -2,17 +2,11 @@ import React, { useContext, useEffect } from 'react';
 import { CartContext } from './Context/CartContext';
 import { Link } from 'react-router-dom'; // Si estás usando React Router
 import { CartItem } from './CartItem';
+import { bodyBg } from './bodyBg';
 
 export const Cart = () => {
     const { cart, clearCart, total } = useContext(CartContext);
-
-    useEffect(() => {
-        document.body.classList.add('bg-[#ededed]');
-        return () => {
-            document.body.classList.remove('bg-[#ededed]');
-        }
-    }, [])
-
+    bodyBg();
     console.log(cart)
     if (cart.length === 0) {
         return (
@@ -25,7 +19,7 @@ export const Cart = () => {
 
     return (
         <div className='mt-[9rem] mb-[9rem]  px-[2rem] '>
-            <div className='grid md:grid-cols-3 overflow-visible gap-4 max-w-[1000px] mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-3 overflow-visible gap-y-2.5 md:gap-x-[2rem]  max-w-[1000px] mx-auto'>
                 <div className='md:col-span-2 bg-white sm:col-span-2 shadow-[0_1px_2px_rgba(0,0,0,0.12)]'>
                     {/* <h1 className='py-[1.1rem] px-[2rem] text-lg'>Carrito De Compras</h1> */}
                     {cart.map((producto, index) => <CartItem key={producto.id} item={producto} index={index} />)}

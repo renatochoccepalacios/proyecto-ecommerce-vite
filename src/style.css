@@ -2,7 +2,7 @@
 
 @layer components {
     #root {
-        @apply min-h-dvh grid grid-cols-1 items-center justify-center bg-gray-100;
+        @apply min-h-dvh grid grid-cols-1 items-center justify-center;
     }
 
     .active-button::after {

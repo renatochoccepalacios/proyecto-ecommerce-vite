@@ -34,8 +34,10 @@ function ItemDetailContainer() {
 
     console.log(products)
 
+    
+
     return (
-        <section className=" py-[3rem] px-[2rem] flex justify-center  m-auto min-h-[100dvh] w-full gap-[2rem] ">
+        <section className=" py-[7rem] px-[2rem] flex justify-center  m-auto min-h-[100dvh] w-full gap-[2rem] bg-[#ededed]">
 
             {products ? <ItemDetails {...products} /> : <Spinner />}
         </section>
